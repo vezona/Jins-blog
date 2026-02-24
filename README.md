@@ -6,7 +6,7 @@
 
 ### 核心框架
 
-- **Nuxt 3** - Vue 3 Composition API + TypeScript
+- **Nuxt 4** - Vue 3 Composition API + TypeScript
 - **UnoCSS** - Tailwind CSS 語法支援
 
 ### 編輯器 / 後台
