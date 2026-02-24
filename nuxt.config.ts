@@ -7,5 +7,17 @@ export default defineNuxtConfig({
   ],
   css: [
     '@unocss/reset/tailwind.css'
-  ]
+  ],
+  experimental: {
+    inlineSSRStyles: false
+  },
+  features: {
+    inlineStyles: true
+  },
+  app: {
+    pageTransition: { 
+      name: 'page', 
+      mode: 'out-in'
+    }
+  }
 })

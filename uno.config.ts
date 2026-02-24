@@ -42,5 +42,19 @@ export default defineConfig({
         900: '#273631',
       }
     }
-  }
+  },
+  // 預掃描常用的工具類別，減少 FOUC
+  safelist: [
+    'min-h-screen',
+    'flex',
+    'flex-col',
+    'container',
+    'mx-auto',
+    'px-4',
+    'py-8',
+    'bg-white',
+    'border',
+    'rounded-lg',
+    'shadow',
+  ]
 })
