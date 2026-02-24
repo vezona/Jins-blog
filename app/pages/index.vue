@@ -1,18 +1,9 @@
 <template>
   <div class="container mx-auto px-4 py-8">
     <section class="text-center py-20">
-      <h1 class="text-5xl font-bold mb-4">
-        歡迎來到 Jins Blog
-      </h1>
-      <p class="text-xl text-gray-600 mb-8">
-        記錄程式學習、投資理財、讀書心得
-      </p>
-      <NuxtLink 
-        to="/blog" 
-        class="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-      >
-        閱讀文章
-      </NuxtLink>
+      <h1 class="text-5xl font-bold mb-4 text-theme-700">歡迎來到 Jins Blog</h1>
+      <p class="text-xl text-gray-600 mb-8">記錄程式學習、投資理財、讀書心得</p>
+      <NuxtLink to="/blog" class="btn btn-primary"> 閱讀文章 </NuxtLink>
     </section>
 
     <section class="py-12">
@@ -24,9 +15,9 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Jins Blog - 程式學習、投資理財、讀書心得',
-  description: '個人部落格，分享程式開發、投資理財與閱讀心得',
-  ogTitle: 'Jins Blog',
-  ogDescription: '個人部落格，分享程式開發、投資理財與閱讀心得',
-})
+  title: "Jins Blog - 程式學習、投資理財、讀書心得",
+  description: "個人部落格，分享程式開發、投資理財與閱讀心得",
+  ogTitle: "Jins Blog",
+  ogDescription: "個人部落格，分享程式開發、投資理財與閱讀心得",
+});
 </script>

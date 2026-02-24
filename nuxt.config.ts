@@ -6,14 +6,9 @@ export default defineNuxtConfig({
     '@unocss/nuxt'
   ],
   css: [
-    '@unocss/reset/tailwind.css'
+    '@unocss/reset/tailwind.css',
+    '~/assets/css/main.css'
   ],
-  experimental: {
-    inlineSSRStyles: false
-  },
-  features: {
-    inlineStyles: true
-  },
   app: {
     pageTransition: { 
       name: 'page', 
