@@ -1,3 +1,5 @@
+<script setup lang="ts"></script>
+
 <template>
   <aside class="w-64 bg-white border-r min-h-screen">
     <nav class="p-4">
@@ -49,5 +51,3 @@
     </nav>
   </aside>
 </template>
-
-<script setup lang="ts"></script>

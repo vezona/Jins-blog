@@ -1,3 +1,27 @@
+<script setup lang="ts">
+definePageMeta({
+  layout: "admin"
+});
+
+const form = ref({
+  title: "",
+  slug: "",
+  category: "",
+  excerpt: "",
+  content: "",
+});
+
+const handleSubmit = () => {
+  // TODO: 實作發布文章邏輯
+  console.log("發布文章:", form.value);
+};
+
+useSeoMeta({
+  title: "新增文章 - 後台 - Jins Blog",
+  robots: "noindex, nofollow",
+});
+</script>
+
 <template>
   <div>
     <div class="mb-6">
@@ -98,27 +122,3 @@
     </form>
   </div>
 </template>
-
-<script setup lang="ts">
-definePageMeta({
-  layout: "admin"
-});
-
-const form = ref({
-  title: "",
-  slug: "",
-  category: "",
-  excerpt: "",
-  content: "",
-});
-
-const handleSubmit = () => {
-  // TODO: 實作發布文章邏輯
-  console.log("發布文章:", form.value);
-};
-
-useSeoMeta({
-  title: "新增文章 - 後台 - Jins Blog",
-  robots: "noindex, nofollow",
-});
-</script>

@@ -1,24 +1,3 @@
-<template>
-  <div class="min-h-screen flex items-center justify-center p-4">
-    <div class="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
-      <div class="text-center">
-        <div
-          v-if="loading"
-          class="animate-spin rounded-full h-12 w-12 border-b-2 border-theme-green-700 mx-auto mb-4"
-        ></div>
-        <p class="text-gray-600 mb-4">{{ status }}</p>
-
-        <div class="mt-6 text-left bg-gray-50 p-4 rounded text-xs">
-          <p class="font-bold mb-2">資訊：</p>
-          <p>User: {{ user ? "已登入" : "未登入" }}</p>
-          <p v-if="user">Email: {{ user.email }}</p>
-          <p v-if="error" class="text-red-600 mt-2">錯誤: {{ error }}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 const supabase = useSupabaseClient();
 const user = useSupabaseUser();
@@ -86,3 +65,24 @@ onMounted(async () => {
   }
 });
 </script>
+
+<template>
+  <div class="min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
+      <div class="text-center">
+        <div
+          v-if="loading"
+          class="animate-spin rounded-full h-12 w-12 border-b-2 border-theme-green-700 mx-auto mb-4"
+        ></div>
+        <p class="text-gray-600 mb-4">{{ status }}</p>
+
+        <div class="mt-6 text-left bg-gray-50 p-4 rounded text-xs">
+          <p class="font-bold mb-2">資訊：</p>
+          <p>User: {{ user ? "已登入" : "未登入" }}</p>
+          <p v-if="user">Email: {{ user.email }}</p>
+          <p v-if="error" class="text-red-600 mt-2">錯誤: {{ error }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

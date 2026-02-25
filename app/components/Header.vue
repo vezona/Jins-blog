@@ -1,3 +1,21 @@
+<script setup lang="ts">
+const supabase = useSupabaseClient();
+const user = useSupabaseUser();
+const loading = ref(false);
+
+const handleLogout = async () => {
+  loading.value = true;
+  try {
+    await supabase.auth.signOut();
+    navigateTo("/");
+  } catch (error) {
+    console.error("登出失敗:", error);
+  } finally {
+    loading.value = false;
+  }
+};
+</script>
+
 <template>
   <header class="border-b">
     <nav class="container mx-auto px-4 py-4">
@@ -65,21 +83,3 @@
     </nav>
   </header>
 </template>
-
-<script setup lang="ts">
-const supabase = useSupabaseClient();
-const user = useSupabaseUser();
-const loading = ref(false);
-
-const handleLogout = async () => {
-  loading.value = true;
-  try {
-    await supabase.auth.signOut();
-    navigateTo("/");
-  } catch (error) {
-    console.error("登出失敗:", error);
-  } finally {
-    loading.value = false;
-  }
-};
-</script>

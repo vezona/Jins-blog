@@ -1,3 +1,12 @@
+<script setup lang="ts">
+useSeoMeta({
+  title: "Jins Blog - 程式學習、投資理財、讀書心得",
+  description: "個人部落格，分享程式開發、投資理財與閱讀心得",
+  ogTitle: "Jins Blog",
+  ogDescription: "個人部落格，分享程式開發、投資理財與閱讀心得",
+});
+</script>
+
 <template>
   <div class="container mx-auto px-4 py-8">
     <section class="text-center py-20">
@@ -12,12 +21,3 @@
     </section>
   </div>
 </template>
-
-<script setup lang="ts">
-useSeoMeta({
-  title: "Jins Blog - 程式學習、投資理財、讀書心得",
-  description: "個人部落格，分享程式開發、投資理財與閱讀心得",
-  ogTitle: "Jins Blog",
-  ogDescription: "個人部落格，分享程式開發、投資理財與閱讀心得",
-});
-</script>

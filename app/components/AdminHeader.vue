@@ -1,3 +1,25 @@
+<script setup lang="ts">
+const supabase = useSupabaseClient();
+const user = useSupabaseUser();
+const loading = ref(false);
+
+const getInitials = (email: string) => {
+  return email.substring(0, 2).toUpperCase();
+};
+
+const handleLogout = async () => {
+  loading.value = true;
+  try {
+    await supabase.auth.signOut();
+    navigateTo("/login");
+  } catch (error) {
+    console.error("登出失敗:", error);
+  } finally {
+    loading.value = false;
+  }
+};
+</script>
+
 <template>
   <header class="bg-white border-b shadow-sm">
     <div class="px-8 py-4">
@@ -52,25 +74,3 @@
     </div>
   </header>
 </template>
-
-<script setup lang="ts">
-const supabase = useSupabaseClient();
-const user = useSupabaseUser();
-const loading = ref(false);
-
-const getInitials = (email: string) => {
-  return email.substring(0, 2).toUpperCase();
-};
-
-const handleLogout = async () => {
-  loading.value = true;
-  try {
-    await supabase.auth.signOut();
-    navigateTo("/login");
-  } catch (error) {
-    console.error("登出失敗:", error);
-  } finally {
-    loading.value = false;
-  }
-};
-</script>

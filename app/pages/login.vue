@@ -1,3 +1,69 @@
+<script setup lang="ts">
+const supabase = useSupabaseClient();
+const user = useSupabaseUser();
+
+const email = ref("");
+const password = ref("");
+const loading = ref(false);
+const error = ref("");
+const success = ref("");
+
+// 如果已登入，導向後台
+watchEffect(() => {
+  if (user.value) {
+    navigateTo("/admin");
+  }
+});
+
+const handleEmailLogin = async () => {
+  loading.value = true;
+  error.value = "";
+  success.value = "";
+
+  try {
+    const { error: signInError } = await supabase.auth.signInWithPassword({
+      email: email.value,
+      password: password.value,
+    });
+
+    if (signInError) throw signInError;
+
+    success.value = "登入成功！導向中...";
+    setTimeout(() => {
+      navigateTo("/admin");
+    }, 1000);
+  } catch (err: any) {
+    error.value = err.message || "登入失敗，請檢查您的 Email 和密碼";
+  } finally {
+    loading.value = false;
+  }
+};
+
+const handleGithubLogin = async () => {
+  loading.value = true;
+  error.value = "";
+
+  try {
+    const { error: signInError } = await supabase.auth.signInWithOAuth({
+      provider: "github",
+      options: {
+        redirectTo: `${location.origin}/auth/callback`,
+      },
+    });
+
+    if (signInError) throw signInError;
+  } catch (err: any) {
+    error.value = err.message || "GitHub 登入失敗";
+    loading.value = false;
+  }
+};
+
+useSeoMeta({
+  title: "登入 - Jins Blog",
+  description: "登入 Jins Blog 後台管理系統",
+});
+</script>
+
 <template>
   <div
     class="min-h-screen flex items-center justify-center bg-gradient-to-br from-theme-green-50 to-theme-green-100 px-4"
@@ -109,69 +175,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-const supabase = useSupabaseClient();
-const user = useSupabaseUser();
-
-const email = ref("");
-const password = ref("");
-const loading = ref(false);
-const error = ref("");
-const success = ref("");
-
-// 如果已登入，導向後台
-watchEffect(() => {
-  if (user.value) {
-    navigateTo("/admin");
-  }
-});
-
-const handleEmailLogin = async () => {
-  loading.value = true;
-  error.value = "";
-  success.value = "";
-
-  try {
-    const { error: signInError } = await supabase.auth.signInWithPassword({
-      email: email.value,
-      password: password.value,
-    });
-
-    if (signInError) throw signInError;
-
-    success.value = "登入成功！導向中...";
-    setTimeout(() => {
-      navigateTo("/admin");
-    }, 1000);
-  } catch (err: any) {
-    error.value = err.message || "登入失敗，請檢查您的 Email 和密碼";
-  } finally {
-    loading.value = false;
-  }
-};
-
-const handleGithubLogin = async () => {
-  loading.value = true;
-  error.value = "";
-
-  try {
-    const { error: signInError } = await supabase.auth.signInWithOAuth({
-      provider: "github",
-      options: {
-        redirectTo: `${location.origin}/auth/callback`,
-      },
-    });
-
-    if (signInError) throw signInError;
-  } catch (err: any) {
-    error.value = err.message || "GitHub 登入失敗";
-    loading.value = false;
-  }
-};
-
-useSeoMeta({
-  title: "登入 - Jins Blog",
-  description: "登入 Jins Blog 後台管理系統",
-});
-</script>

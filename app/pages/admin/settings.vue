@@ -1,3 +1,31 @@
+<script setup lang="ts">
+definePageMeta({
+  layout: "admin",
+});
+
+const settings = ref({
+  siteName: "Jins Blog",
+  siteDescription: "記錄程式學習、投資理財、讀書心得",
+  contactEmail: "",
+  metaTitle: "Jins Blog",
+  metaDescription: "記錄程式學習、投資理財、讀書心得",
+  gaId: "",
+  github: "",
+  twitter: "",
+  linkedin: "",
+});
+
+const handleSave = () => {
+  // TODO: 實作儲存設定邏輯
+  console.log("儲存設定:", settings.value);
+};
+
+useSeoMeta({
+  title: "網站設定 - 後台 - Jins Blog",
+  robots: "noindex, nofollow",
+});
+</script>
+
 <template>
   <div>
     <h1 class="text-3xl font-bold mb-6">網站設定</h1>
@@ -133,31 +161,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-definePageMeta({
-  layout: "admin"
-});
-
-const settings = ref({
-  siteName: "Jins Blog",
-  siteDescription: "記錄程式學習、投資理財、讀書心得",
-  contactEmail: "",
-  metaTitle: "Jins Blog",
-  metaDescription: "記錄程式學習、投資理財、讀書心得",
-  gaId: "",
-  github: "",
-  twitter: "",
-  linkedin: "",
-});
-
-const handleSave = () => {
-  // TODO: 實作儲存設定邏輯
-  console.log("儲存設定:", settings.value);
-};
-
-useSeoMeta({
-  title: "網站設定 - 後台 - Jins Blog",
-  robots: "noindex, nofollow",
-});
-</script>

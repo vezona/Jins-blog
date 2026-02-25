@@ -1,3 +1,14 @@
+<script setup lang="ts">
+definePageMeta({
+  layout: "admin",
+});
+
+useSeoMeta({
+  title: "後台管理 - Jins Blog",
+  robots: "noindex, nofollow", // 後台不要被搜尋引擎索引
+});
+</script>
+
 <template>
   <div>
     <h1 class="text-3xl font-bold mb-6">後台管理</h1>
@@ -40,14 +51,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-definePageMeta({
-  layout: "admin"
-});
-
-useSeoMeta({
-  title: "後台管理 - Jins Blog",
-  robots: "noindex, nofollow", // 後台不要被搜尋引擎索引
-});
-</script>
