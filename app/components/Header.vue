@@ -59,11 +59,21 @@ const handleLogout = async () => {
           <div class="flex items-center gap-3 border-l pl-6">
             <template v-if="user">
               <!-- 已登入 -->
+              <div
+                v-if="user.user_metadata?.avatar_url"
+                class="w-10 h-10 rounded-full overflow-hidden bg-gray-200"
+              >
+                <img
+                  :src="user.user_metadata.avatar_url"
+                  :alt="user.email"
+                  class="w-full h-full object-cover"
+                />
+              </div>
               <NuxtLink
                 to="/admin"
-                class="px-4 py-2 text-sm bg-theme-green-700 text-white rounded-lg hover:bg-theme-green-800 transition"
+                class="px-4 py-2 text-sm bg-theme-700 text-white rounded-lg hover:bg-theme-800 transition"
               >
-                後台管理
+                後台
               </NuxtLink>
               <button
                 @click="handleLogout"

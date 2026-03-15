@@ -7,7 +7,8 @@ onMounted(() => {
 
 <template>
   <div class="min-h-screen bg-gray-50">
-    <AdminHeader />
+    <!-- <AdminHeader /> -->
+    <Header />
     <div class="flex">
       <AdminSidebar />
       <main class="flex-1 p-8">
