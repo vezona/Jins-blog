@@ -20,8 +20,8 @@ const handleLogout = async () => {
   <header class="border-b">
     <nav class="container mx-auto px-4 py-4">
       <div class="flex justify-between items-center">
-        <NuxtLink to="/" class="text-2xl font-bold btn-green">
-          Jins Blog
+        <NuxtLink to="/" class="text-2xl font-bold text-theme-700">
+          Jins Blog 老金札記
         </NuxtLink>
 
         <div class="flex items-center gap-6">
